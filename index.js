@@ -4,7 +4,7 @@ document.querySelector('#date').valueAsDate = new Date();
 function updateTripBookingEventListener() {
   for (let i = 0; i < document.querySelectorAll('.book').length; i++) {
     document.querySelectorAll('.book')[i].addEventListener('click', function () {
-      fetch('http://localhost:3000/cart', {
+      fetch('https://tickethack-backend-seven-azure.vercel.app/cart', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ tripId: this.id }),
@@ -27,7 +27,7 @@ document.querySelector('#search').addEventListener('click', function () {
     return;
   }
 
-  fetch(`http://localhost:3000/search/${departure}/${arrival}/${date}`)
+  fetch(`https://tickethack-backend-seven-azure.vercel.app/search/${departure}/${arrival}/${date}`)
     .then(response => response.json())
     .then(data => {
       console.log(data);
